@@ -17,7 +17,7 @@ def batch_generator(arr, n_seqs, n_steps):
             x = arr[:, n:n + n_steps]
             y = np.zeros_like(x)
             y[:, :-1], y[:, -1] = x[:, 1:], x[:, 0]
-            yield x, y
+            yield x, y      #此处x,y为array中的元素，说明模型输入的是词的索引而不是直接输入词向量
 
 
 class TextConverter(object):
