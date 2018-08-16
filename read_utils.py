@@ -26,6 +26,7 @@ class TextConverter(object):
             with open(filename, 'rb') as f:
                 self.vocab = pickle.load(f)
         else:
+            #根据词出现的频次来得到单词表，只取前5000个词
             vocab = set(text)
             print(len(vocab))
             # max_vocab_process
@@ -64,6 +65,7 @@ class TextConverter(object):
         else:
             raise Exception('Unknown index!')
 
+    #arr存储词的索引
     def text_to_arr(self, text):
         arr = []
         for word in text:
