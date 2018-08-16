@@ -10,7 +10,7 @@ def batch_generator(arr, n_seqs, n_steps):
     batch_size = n_seqs * n_steps
     n_batches = int(len(arr) / batch_size)
     arr = arr[:batch_size * n_batches]
-    arr = arr.reshape((n_seqs, -1))
+    arr = arr.reshape((n_seqs, -1))    #==> arr.shape = [n_seqs, n_steps*n_batches]
     while True:
         np.random.shuffle(arr)
         for n in range(0, arr.shape[1], n_steps):
