@@ -132,7 +132,7 @@ class CharRNN:
             self.saver.save(sess, os.path.join(save_path, 'model'), global_step=step)
 
     def sample(self, n_samples, prime, vocab_size):
-        samples = [c for c in prime]
+        samples = [c for c in prime]     #由于prime=''，因此sample此刻为空列表[]
         sess = self.session
         new_state = sess.run(self.initial_state)
         preds = np.ones((vocab_size, ))  # for prime=[]
